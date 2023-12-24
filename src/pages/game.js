@@ -161,33 +161,44 @@ export default function Game() {
     const [currentQuestion, setCurrentQuestion] = useState();
     const [toggleMute, setToggleMute] = useState(true);
     const [toggleHide, setToggleHide] = useState(false);
+    const [isAnswerCorrect, setIsAnswerCorrect] = useState(null);
+    const [questionsAnsweredCorrectly, setQuestionsAnsweredCorrectly] = useState(null);
+    const [passedQst, setPassedQst] = useState(0);
+    const [score, setScore] = useState(0);
     const navigate = useNavigate()
 
     useEffect(() => {
-        /*const fetchData = async () => {
-          try {
-            const response = await fetch('/db/db.json');
-            const data = await response.json();
-            setQuizData(data);
-            getRandomQuestion()
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        };
-    
-        fetchData();*/
         getRandomQuestion()
     }, []);
+
 
 
     const getRandomQuestion = () => {
         const randomIndex = Math.floor(Math.random() * quizData.length);
         setCurrentQuestion(quizData[randomIndex]);
+        setPassedQst(passedQst + 1)
         const updatedQuizData = [...quizData];
         updatedQuizData.splice(randomIndex, 1);
         setQuizData(updatedQuizData);
     };
 
+    console.log(passedQst);
+    const handleOptionClick = (optionIndex) => {
+        const correctOptionIndex = currentQuestion.correct_option;
+        const isCorrect = optionIndex === correctOptionIndex;
+        setIsAnswerCorrect({index : optionIndex , isCorrect});
+        setQuestionsAnsweredCorrectly(correctOptionIndex)
+        isCorrect && setScore(score + 1)
+        
+        setTimeout(() => {
+            if (passedQst === 10) {
+                return alert(score)
+            }
+            setIsAnswerCorrect(null);
+            setQuestionsAnsweredCorrectly(null);
+            getRandomQuestion()
+        }, 4000);
+    };
 
 
     return (
@@ -201,7 +212,7 @@ export default function Game() {
             </div>
             <div className="absolute top-10 flex gap-6">
                 <span className="font-mono text-xl text-gray-100 bg-black bg-opacity-80 py-2 px-5 rounded-full">
-                    5 : 00
+                    {score} / 10
                 </span>
                 <div className="flex gap-2">
                     <span onClick={() => setToggleMute(!toggleMute)} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleMute ? 'Mute' : 'Unmute'} The Video`}>
@@ -213,17 +224,17 @@ export default function Game() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
                             </svg>}
                     </span>
-                    <span onClick={()=>setToggleHide(!toggleHide)} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleHide ? "Show" : "Hide"} Options`}>
+                    <span onClick={() => setToggleHide(!toggleHide)} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleHide ? "Show" : "Hide"} Options`}>
                         {toggleHide ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-</svg>
-:
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
-                        </svg>}
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                            :
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                            </svg>}
                     </span>
-                    <span onClick={()=>navigate('/')} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title="Leave The Game ">
+                    <span onClick={() => navigate('/')} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title="Leave The Game ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
@@ -231,10 +242,12 @@ export default function Game() {
                 </div>
             </div>
             <div className="absolute top-3 right-10 saturate-50 mx-auto" id="box" />
-           {!toggleHide &&  <main className="grid w-full place-items-center absolute bottom-24 gap-5">
+            {!toggleHide && <main className="grid w-full place-items-center absolute bottom-24 gap-5">
                 {currentQuestion && currentQuestion.options.map((item, index) => (
                     <div className="flex w-full items-center justify-center gap-4">
-                        <div className="bg-gray-200 text-gray-600 py-1 w-[20em] px-6 rounded-md cursor-pointer hover:scale-105">
+                        <div onClick={() => {isAnswerCorrect === null && handleOptionClick(index) }} className={`py-1 w-[20em] px-6 rounded-md cursor-pointer hover:scale-105 
+                        ${ isAnswerCorrect?.index === index && !isAnswerCorrect?.isCorrect ? 'bg-red-600 text-gray-100 animate-pluse'  
+                        : questionsAnsweredCorrectly === index ? 'bg-green-600 text-gray-100 animate-pluse' : 'bg-gray-200 text-gray-600'}`}>
                             <p className="text-center text-md font-bold font-serif ">{item} , Morocco</p>
                         </div>
                         <a href={`https://www.google.com/maps/place/${item}`} target="_blank">
@@ -402,7 +415,7 @@ export default function Game() {
                         </path>
                     </svg>
                 </a>
-            </div> 
+            </div>
             <a href={currentQuestion && currentQuestion.link} target="_blank" className="absolute bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
             </a>
         </section>

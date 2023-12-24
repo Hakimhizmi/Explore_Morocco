@@ -1,156 +1,156 @@
 [{
-    "link" : "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
     "options" : ["Tangier","Al sawira","Agadir","Asilah"] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/Z81f5gnIa5g?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/Z81f5gnIa5g?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
     "options" : ["Fes","Marrakech","Salé","Rabat"] ,
     "correct_option" : 0
 },
 {
-    "link" : "https://www.youtube.com/embed/aysbEtOUoWo?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/aysbEtOUoWo?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
     "options" : ["Casablanca","Marrakech","Tangier","Rabat"] ,
     "correct_option" : 3
 }
 ,
 {
-    "link" : "https://www.youtube.com/embed/3ZZ1bPZ9DfE?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/3ZZ1bPZ9DfE?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
     "options" : ["Rabat","Casablanca","Tangier","Mohammedia"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/l5Ef-b7fDuU?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/l5Ef-b7fDuU?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
     "options" : ["Laayoune","Zagora","Ouarzazate","Errachidia "] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
     "options" : ["Kalaat M'Gouna","Youssoufia","Zagora","Errachidia "] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/BAJyqUFu9_U?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/BAJyqUFu9_U?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
     "options" : ["Youssoufia","Tiznit","Ouarzazate","Marrakech "] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/ivXDnAFT-P4?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/ivXDnAFT-P4?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
     "options" : ["Laayoune","Tan-Tan","Sefrou","Agadir "] ,
     "correct_option" : 0
 },
 {
-    "link" : "https://www.youtube.com/embed/_xIfiUpY9j0?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/_xIfiUpY9j0?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
     "options" : ["Al sawira","Beni Mellal","Nador","Marrakech"] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/Ke6_2Kc2e3U?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/Ke6_2Kc2e3U?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
     "options" : ["Settat","Beni Mellal","Marrakech","El Jadida"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/vjzbBLFueBc?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/vjzbBLFueBc?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
     "options" : ["Al sawira","Fes","Marrakech","El Jadida"] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/R1z5UFd3kzI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/R1z5UFd3kzI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
     "options" : ["Kenitra","Martil","M'diq","El Jadida"] ,
     "correct_option" : 0
 },
 {
-    "link" : "https://www.youtube.com/embed/1lcE23UbMoY?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/1lcE23UbMoY?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
     "options" : ["Tangier","Martil","Tetouan","Agadir"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/8yrBIW7QUHI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/8yrBIW7QUHI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
     "options" : ["Tangier","Sidi Bennour","Tetouan","Agadir"] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/wN0Csn35U48?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/wN0Csn35U48?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
     "options" : ["Al Hoceima","Midelt, Morocco","Oujda","Marrakech"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/69fVNO-26kU?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/69fVNO-26kU?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
     "options" : ["Agadir","Midelt, Morocco","Oujda","Berkane"] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/kdxonJ6BdsA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/kdxonJ6BdsA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
     "options" : ["Taza","Guercif, Morocco","Oujda","Berkane"] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/8ftchk8Sq1I?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/8ftchk8Sq1I?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
     "options" : ["Al Hoceïma","Martil, Morocco","Tangier","Tetouan"] ,
     "correct_option" : 0
 },
 {
-    "link" : "https://www.youtube.com/embed/9WFPzO7RotA?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/9WFPzO7RotA?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
     "options" : ["Tinghir","Arfoud, Morocco","Ouarzazate","Errachidia"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
     "options" : ["Laayoune","Tan-Tan, Morocco","Samara","Guelmim"] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/k-hXLasSjx4?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/k-hXLasSjx4?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
     "options" : ["Safi","Rabat, Morocco","Temara","Barrechid"] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/ujTwF6U2bi8?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/ujTwF6U2bi8?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1" ,
     "options" : ["Khénifra","Taza, Morocco","Guercif","Barrechid"] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
     "options" : ["Ain El Aouda","Azrou, Morocco","Midalt","Khénifra"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
     "options" : ["Barrechid","Oujda, Morocco","Tinghir","Missour"] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
     "options" : ["Chichaoua","Beni mellal, Morocco","Marrakech","Settat"] ,
     "correct_option" : 0
 },
 {
-    "link" : "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
     "options" : ["Arfoud","Beni mellal, Morocco","Marrakech","Aziylal"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1" ,
     "options" : ["Demnat","Zagora, Morocco","Azemmour","Aziylal"] ,
     "correct_option" : 3
 },
 {
-    "link" : "https://www.youtube.com/embed/jFXJLnsDsNw?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/jFXJLnsDsNw?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
     "options" : ["Tiznit","Kouribga, Morocco","Aït Melloul","Agadir"] ,
     "correct_option" : 2
 },
 {
-    "link" : "https://www.youtube.com/embed/57ihivVzkR4?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/57ihivVzkR4?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
     "options" : ["Meknès","Béni Mellal, Morocco","Settat","Larache"] ,
     "correct_option" : 0
 },
 {
-    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
     "options" : ["Casablanca","Larache","Settat","Nador"] ,
     "correct_option" : 1
 },
 {
-    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0" ,
+    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
     "options" : ["Sidi ifni","Martil","Aftissat","Dakhla"] ,
     "correct_option" : 3
 }]
