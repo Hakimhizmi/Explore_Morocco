@@ -1,163 +1,166 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
+const DB = [{
+    "link" : "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
+    "options" : ["Tangier","Al sawira","Agadir","Asilah"] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/Z81f5gnIa5g?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
+    "options" : ["Fes","Marrakech","Salé","Rabat"] ,
+    "correct_option" : 0
+},
+{
+    "link" : "https://www.youtube.com/embed/aysbEtOUoWo?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
+    "options" : ["Casablanca","Marrakech","Tangier","Rabat"] ,
+    "correct_option" : 3
+}
+,
+{
+    "link" : "https://www.youtube.com/embed/3ZZ1bPZ9DfE?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
+    "options" : ["Rabat","Casablanca","Tangier","Mohammedia"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/l5Ef-b7fDuU?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
+    "options" : ["Laayoune","Zagora","Ouarzazate","Errachidia "] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
+    "options" : ["Kalaat M'Gouna","Youssoufia","Zagora","Errachidia "] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/BAJyqUFu9_U?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
+    "options" : ["Youssoufia","Tiznit","Ouarzazate","Marrakech "] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/ivXDnAFT-P4?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
+    "options" : ["Laayoune","Tan-Tan","Sefrou","Agadir "] ,
+    "correct_option" : 0
+},
+{
+    "link" : "https://www.youtube.com/embed/_xIfiUpY9j0?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
+    "options" : ["Al sawira","Beni Mellal","Nador","Marrakech"] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/Ke6_2Kc2e3U?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
+    "options" : ["Settat","Beni Mellal","Marrakech","El Jadida"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/vjzbBLFueBc?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
+    "options" : ["Al sawira","Fes","Marrakech","El Jadida"] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/R1z5UFd3kzI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
+    "options" : ["Kenitra","Martil","M'diq","El Jadida"] ,
+    "correct_option" : 0
+},
+{
+    "link" : "https://www.youtube.com/embed/1lcE23UbMoY?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
+    "options" : ["Tangier","Martil","Tetouan","Agadir"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/8yrBIW7QUHI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
+    "options" : ["Tangier","Sidi Bennour","Tetouan","Agadir"] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/wN0Csn35U48?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
+    "options" : ["Al Hoceima","Midelt, Morocco","Oujda","Marrakech"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/69fVNO-26kU?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
+    "options" : ["Agadir","Midelt, Morocco","Oujda","Berkane"] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/kdxonJ6BdsA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
+    "options" : ["Taza","Guercif, Morocco","Oujda","Berkane"] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/8ftchk8Sq1I?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
+    "options" : ["Al Hoceïma","Martil, Morocco","Tangier","Tetouan"] ,
+    "correct_option" : 0
+},
+{
+    "link" : "https://www.youtube.com/embed/9WFPzO7RotA?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
+    "options" : ["Tinghir","Arfoud, Morocco","Ouarzazate","Errachidia"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
+    "options" : ["Laayoune","Tan-Tan, Morocco","Samara","Guelmim"] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/k-hXLasSjx4?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
+    "options" : ["Safi","Rabat, Morocco","Temara","Barrechid"] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/ujTwF6U2bi8?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1" ,
+    "options" : ["Khénifra","Taza, Morocco","Guercif","Barrechid"] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
+    "options" : ["Ain El Aouda","Azrou, Morocco","Midalt","Khénifra"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
+    "options" : ["Barrechid","Oujda, Morocco","Tinghir","Missour"] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
+    "options" : ["Chichaoua","Beni mellal, Morocco","Marrakech","Settat"] ,
+    "correct_option" : 0
+},
+{
+    "link" : "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
+    "options" : ["Arfoud","Beni mellal, Morocco","Marrakech","Aziylal"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1" ,
+    "options" : ["Demnat","Zagora, Morocco","Azemmour","Aziylal"] ,
+    "correct_option" : 3
+},
+{
+    "link" : "https://www.youtube.com/embed/jFXJLnsDsNw?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
+    "options" : ["Tiznit","Kouribga, Morocco","Aït Melloul","Agadir"] ,
+    "correct_option" : 2
+},
+{
+    "link" : "https://www.youtube.com/embed/57ihivVzkR4?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
+    "options" : ["Meknès","Béni Mellal, Morocco","Settat","Larache"] ,
+    "correct_option" : 0
+},
+{
+    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
+    "options" : ["Casablanca","Larache","Settat","Nador"] ,
+    "correct_option" : 1
+},
+{
+    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
+    "options" : ["Sidi ifni","Martil","Aftissat","Dakhla"] ,
+    "correct_option" : 3
+}]
+
+
 export default function Game() {
-    const [quizData, setQuizData] = useState([{
-        "link": "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0",
-        "options": ["Tangier", "Al sawira", "Agadir", "Asilah"],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/Z81f5gnIa5g?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0",
-        "options": ["Fes", "Marrakech", "Salé", "Rabat"],
-        "correct_option": 0
-    },
-    {
-        "link": "https://www.youtube.com/embed/aysbEtOUoWo?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0",
-        "options": ["Casablanca", "Marrakech", "Tangier", "Rabat"],
-        "correct_option": 3
-    }
-        ,
-    {
-        "link": "https://www.youtube.com/embed/3ZZ1bPZ9DfE?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0",
-        "options": ["Rabat", "Casablanca", "Tangier", "Mohammedia"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/l5Ef-b7fDuU?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0",
-        "options": ["Laayoune", "Zagora", "Ouarzazate", "Errachidia "],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0",
-        "options": ["Kalaat M'Gouna", "Youssoufia", "Zagora", "Errachidia "],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/BAJyqUFu9_U?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0",
-        "options": ["Youssoufia", "Tiznit", "Ouarzazate", "Marrakech "],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/ivXDnAFT-P4?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0",
-        "options": ["Laayoune", "Tan-Tan", "Sefrou", "Agadir "],
-        "correct_option": 0
-    },
-    {
-        "link": "https://www.youtube.com/embed/_xIfiUpY9j0?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0",
-        "options": ["Al sawira", "Beni Mellal", "Nador", "Marrakech"],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/Ke6_2Kc2e3U?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0",
-        "options": ["Settat", "Beni Mellal", "Marrakech", "El Jadida"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/vjzbBLFueBc?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0",
-        "options": ["Al sawira", "Fes", "Marrakech", "El Jadida"],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/R1z5UFd3kzI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0",
-        "options": ["Kenitra", "Martil", "M'diq", "El Jadida"],
-        "correct_option": 0
-    },
-    {
-        "link": "https://www.youtube.com/embed/1lcE23UbMoY?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0",
-        "options": ["Tangier", "Martil", "Tetouan", "Agadir"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/8yrBIW7QUHI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0",
-        "options": ["Tangier", "Sidi Bennour", "Tetouan", "Agadir"],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/wN0Csn35U48?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0",
-        "options": ["Al Hoceima", "Midelt, Morocco", "Oujda", "Marrakech"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/69fVNO-26kU?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0",
-        "options": ["Agadir", "Midelt, Morocco", "Oujda", "Berkane"],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/kdxonJ6BdsA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0",
-        "options": ["Taza", "Guercif, Morocco", "Oujda", "Berkane"],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/8ftchk8Sq1I?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0",
-        "options": ["Al Hoceïma", "Martil, Morocco", "Tangier", "Tetouan"],
-        "correct_option": 0
-    },
-    {
-        "link": "https://www.youtube.com/embed/9WFPzO7RotA?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0",
-        "options": ["Tinghir", "Arfoud, Morocco", "Ouarzazate", "Errachidia"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0",
-        "options": ["Laayoune", "Tan-Tan, Morocco", "Samara", "Guelmim"],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/k-hXLasSjx4?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0",
-        "options": ["Safi", "Rabat, Morocco", "Temara", "Barrechid"],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/ujTwF6U2bi8?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0",
-        "options": ["Khénifra", "Taza, Morocco", "Guercif", "Barrechid"],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0",
-        "options": ["Ain El Aouda", "Azrou, Morocco", "Midalt", "Khénifra"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0",
-        "options": ["Barrechid", "Oujda, Morocco", "Tinghir", "Missour"],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0",
-        "options": ["Chichaoua", "Beni mellal, Morocco", "Marrakech", "Settat"],
-        "correct_option": 0
-    },
-    {
-        "link": "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0",
-        "options": ["Arfoud", "Beni mellal, Morocco", "Marrakech", "Aziylal"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0",
-        "options": ["Demnat", "Zagora, Morocco", "Azemmour", "Aziylal"],
-        "correct_option": 3
-    },
-    {
-        "link": "https://www.youtube.com/embed/jFXJLnsDsNw?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0",
-        "options": ["Tiznit", "Kouribga, Morocco", "Aït Melloul", "Agadir"],
-        "correct_option": 2
-    },
-    {
-        "link": "https://www.youtube.com/embed/57ihivVzkR4?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0",
-        "options": ["Meknès", "Béni Mellal, Morocco", "Settat", "Larache"],
-        "correct_option": 0
-    },
-    {
-        "link": "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0",
-        "options": ["Casablanca", "Larache", "Settat", "Nador"],
-        "correct_option": 1
-    },
-    {
-        "link": "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0",
-        "options": ["Sidi ifni", "Martil", "Aftissat", "Dakhla"],
-        "correct_option": 3
-    }]);
+    const [quizData, setQuizData] = useState(DB);
     const [currentQuestion, setCurrentQuestion] = useState();
     const [toggleMute, setToggleMute] = useState(true);
     const [toggleHide, setToggleHide] = useState(false);
@@ -182,7 +185,6 @@ export default function Game() {
         setQuizData(updatedQuizData);
     };
 
-    console.log(passedQst);
     const handleOptionClick = (optionIndex) => {
         const correctOptionIndex = currentQuestion.correct_option;
         const isCorrect = optionIndex === correctOptionIndex;
@@ -207,15 +209,15 @@ export default function Game() {
                 src={currentQuestion.link + (!toggleMute ? '&mute=1' : '')}
                 allow="autoplay" title='guess' frameBorder={0} />}
 
-            <div className="absolute top-3 left-10 text-3xl font-bold text-gray-100 uppercase">.Explore Morocco
+            <div className="absolute top-3 left-3 md:left-10 text-3xl font-bold text-gray-100 uppercase">.Explore Morocco
                 <img src="/images/flag.png" className="w-20 h-20 absolute -top-7 -right-7 rotate-6 animate-pulse" alt="" />
             </div>
-            <div className="absolute top-10 flex gap-6">
-                <span className="font-mono text-xl text-gray-100 bg-black bg-opacity-80 py-2 px-5 rounded-full">
+            <div className="absolute top-20 md:top-10 flex gap-6">
+                <span className="font-mono text-xl text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-5 rounded-full">
                     {score} / 10
                 </span>
                 <div className="flex gap-2">
-                    <span onClick={() => setToggleMute(!toggleMute)} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleMute ? 'Mute' : 'Unmute'} The Video`}>
+                    <span onClick={() => setToggleMute(!toggleMute)} className="text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleMute ? 'Mute' : 'Unmute'} The Video`}>
                         {toggleMute ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
                         </svg>
@@ -224,7 +226,7 @@ export default function Game() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />
                             </svg>}
                     </span>
-                    <span onClick={() => setToggleHide(!toggleHide)} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleHide ? "Show" : "Hide"} Options`}>
+                    <span onClick={() => setToggleHide(!toggleHide)} className="text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleHide ? "Show" : "Hide"} Options`}>
                         {toggleHide ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -234,14 +236,14 @@ export default function Game() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
                             </svg>}
                     </span>
-                    <span onClick={() => navigate('/')} className="text-gray-100 bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title="Leave The Game ">
+                    <span onClick={() => navigate('/')} className="text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title="Leave The Game ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
                     </span>
                 </div>
             </div>
-            <div className="absolute top-3 right-10 saturate-50 mx-auto" id="box" />
+            <div className="absolute top-3 right-3 md:right-10 saturate-50 mx-auto" id="box" />
             {!toggleHide && <main className="grid w-full place-items-center absolute bottom-24 gap-5">
                 {currentQuestion && currentQuestion.options.map((item, index) => (
                     <div className="flex w-full items-center justify-center gap-4">
@@ -416,7 +418,7 @@ export default function Game() {
                     </svg>
                 </a>
             </div>
-            <a href={currentQuestion && currentQuestion.link} target="_blank" rel="noopener noreferrer" className="absolute bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
+            <a href={currentQuestion && currentQuestion.link} target="_blank" rel="noopener noreferrer" className="absolute bottom-10 md:bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
             </a>
         </section>
 
