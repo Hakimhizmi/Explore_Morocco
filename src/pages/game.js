@@ -2,160 +2,160 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const DB = [{
-    "link" : "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
-    "options" : ["Tangier","Al sawira","Agadir","Asilah"] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "options": ["Tangier", "Al sawira", "Agadir", "Asilah"],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/Z81f5gnIa5g?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
-    "options" : ["Fes","Marrakech","Salé","Rabat"] ,
-    "correct_option" : 0
+    "link": "https://www.youtube.com/embed/Z81f5gnIa5g?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "options": ["Fes", "Marrakech", "Salé", "Rabat"],
+    "correct_option": 0
 },
 {
-    "link" : "https://www.youtube.com/embed/aysbEtOUoWo?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
-    "options" : ["Casablanca","Marrakech","Tangier","Rabat"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/aysbEtOUoWo?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "options": ["Casablanca", "Marrakech", "Tangier", "Rabat"],
+    "correct_option": 3
 }
-,
+    ,
 {
-    "link" : "https://www.youtube.com/embed/3ZZ1bPZ9DfE?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
-    "options" : ["Rabat","Casablanca","Tangier","Mohammedia"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/3ZZ1bPZ9DfE?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "options": ["Rabat", "Casablanca", "Tangier", "Mohammedia"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/l5Ef-b7fDuU?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
-    "options" : ["Laayoune","Zagora","Ouarzazate","Errachidia "] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/l5Ef-b7fDuU?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1",
+    "options": ["Laayoune", "Zagora", "Ouarzazate", "Errachidia "],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
-    "options" : ["Kalaat M'Gouna","Youssoufia","Zagora","Errachidia "] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1",
+    "options": ["Kalaat M'Gouna", "Youssoufia", "Zagora", "Errachidia "],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/BAJyqUFu9_U?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
-    "options" : ["Youssoufia","Tiznit","Ouarzazate","Marrakech "] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/BAJyqUFu9_U?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "options": ["Youssoufia", "Tiznit", "Ouarzazate", "Marrakech "],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/ivXDnAFT-P4?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
-    "options" : ["Laayoune","Tan-Tan","Sefrou","Agadir "] ,
-    "correct_option" : 0
+    "link": "https://www.youtube.com/embed/ivXDnAFT-P4?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1",
+    "options": ["Laayoune", "Tan-Tan", "Sefrou", "Agadir "],
+    "correct_option": 0
 },
 {
-    "link" : "https://www.youtube.com/embed/_xIfiUpY9j0?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
-    "options" : ["Al sawira","Beni Mellal","Nador","Marrakech"] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/_xIfiUpY9j0?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1",
+    "options": ["Al sawira", "Beni Mellal", "Nador", "Marrakech"],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/Ke6_2Kc2e3U?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
-    "options" : ["Settat","Beni Mellal","Marrakech","El Jadida"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/Ke6_2Kc2e3U?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "options": ["Settat", "Beni Mellal", "Marrakech", "El Jadida"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/vjzbBLFueBc?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
-    "options" : ["Al sawira","Fes","Marrakech","El Jadida"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/vjzbBLFueBc?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "options": ["Al sawira", "Fes", "Marrakech", "El Jadida"],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/R1z5UFd3kzI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
-    "options" : ["Kenitra","Martil","M'diq","El Jadida"] ,
-    "correct_option" : 0
+    "link": "https://www.youtube.com/embed/R1z5UFd3kzI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "options": ["Kenitra", "Martil", "M'diq", "El Jadida"],
+    "correct_option": 0
 },
 {
-    "link" : "https://www.youtube.com/embed/1lcE23UbMoY?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
-    "options" : ["Tangier","Martil","Tetouan","Agadir"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/1lcE23UbMoY?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "options": ["Tangier", "Martil", "Tetouan", "Agadir"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/8yrBIW7QUHI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
-    "options" : ["Tangier","Sidi Bennour","Tetouan","Agadir"] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/8yrBIW7QUHI?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "options": ["Tangier", "Sidi Bennour", "Tetouan", "Agadir"],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/wN0Csn35U48?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1" ,
-    "options" : ["Al Hoceima","Midelt, Morocco","Oujda","Marrakech"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/wN0Csn35U48?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1",
+    "options": ["Al Hoceima", "Midelt, Morocco", "Oujda", "Marrakech"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/69fVNO-26kU?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
-    "options" : ["Agadir","Midelt, Morocco","Oujda","Berkane"] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/69fVNO-26kU?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "options": ["Agadir", "Midelt, Morocco", "Oujda", "Berkane"],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/kdxonJ6BdsA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
-    "options" : ["Taza","Guercif, Morocco","Oujda","Berkane"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/kdxonJ6BdsA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "options": ["Taza", "Guercif, Morocco", "Oujda", "Berkane"],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/8ftchk8Sq1I?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
-    "options" : ["Al Hoceïma","Martil, Morocco","Tangier","Tetouan"] ,
-    "correct_option" : 0
+    "link": "https://www.youtube.com/embed/8ftchk8Sq1I?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "options": ["Al Hoceïma", "Martil, Morocco", "Tangier", "Tetouan"],
+    "correct_option": 0
 },
 {
-    "link" : "https://www.youtube.com/embed/9WFPzO7RotA?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
-    "options" : ["Tinghir","Arfoud, Morocco","Ouarzazate","Errachidia"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/9WFPzO7RotA?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "options": ["Tinghir", "Arfoud, Morocco", "Ouarzazate", "Errachidia"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
-    "options" : ["Laayoune","Tan-Tan, Morocco","Samara","Guelmim"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "options": ["Laayoune", "Tan-Tan, Morocco", "Samara", "Guelmim"],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/k-hXLasSjx4?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
-    "options" : ["Safi","Rabat, Morocco","Temara","Barrechid"] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/k-hXLasSjx4?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "options": ["Safi", "Rabat, Morocco", "Temara", "Barrechid"],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/ujTwF6U2bi8?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1" ,
-    "options" : ["Khénifra","Taza, Morocco","Guercif","Barrechid"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/ujTwF6U2bi8?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1",
+    "options": ["Khénifra", "Taza, Morocco", "Guercif", "Barrechid"],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1" ,
-    "options" : ["Ain El Aouda","Azrou, Morocco","Midalt","Khénifra"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "options": ["Ain El Aouda", "Azrou, Morocco", "Midalt", "Khénifra"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
-    "options" : ["Barrechid","Oujda, Morocco","Tinghir","Missour"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "options": ["Barrechid", "Oujda, Morocco", "Tinghir", "Missour"],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
-    "options" : ["Chichaoua","Beni mellal, Morocco","Marrakech","Settat"] ,
-    "correct_option" : 0
+    "link": "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "options": ["Chichaoua", "Beni mellal, Morocco", "Marrakech", "Settat"],
+    "correct_option": 0
 },
 {
-    "link" : "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1" ,
-    "options" : ["Arfoud","Beni mellal, Morocco","Marrakech","Aziylal"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "options": ["Arfoud", "Beni mellal, Morocco", "Marrakech", "Aziylal"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1" ,
-    "options" : ["Demnat","Zagora, Morocco","Azemmour","Aziylal"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1",
+    "options": ["Demnat", "Zagora, Morocco", "Azemmour", "Aziylal"],
+    "correct_option": 3
 },
 {
-    "link" : "https://www.youtube.com/embed/jFXJLnsDsNw?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1" ,
-    "options" : ["Tiznit","Kouribga, Morocco","Aït Melloul","Agadir"] ,
-    "correct_option" : 2
+    "link": "https://www.youtube.com/embed/jFXJLnsDsNw?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1",
+    "options": ["Tiznit", "Kouribga, Morocco", "Aït Melloul", "Agadir"],
+    "correct_option": 2
 },
 {
-    "link" : "https://www.youtube.com/embed/57ihivVzkR4?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1" ,
-    "options" : ["Meknès","Béni Mellal, Morocco","Settat","Larache"] ,
-    "correct_option" : 0
+    "link": "https://www.youtube.com/embed/57ihivVzkR4?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "options": ["Meknès", "Béni Mellal, Morocco", "Settat", "Larache"],
+    "correct_option": 0
 },
 {
-    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
-    "options" : ["Casablanca","Larache","Settat","Nador"] ,
-    "correct_option" : 1
+    "link": "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "options": ["Casablanca", "Larache", "Settat", "Nador"],
+    "correct_option": 1
 },
 {
-    "link" : "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1" ,
-    "options" : ["Sidi ifni","Martil","Aftissat","Dakhla"] ,
-    "correct_option" : 3
+    "link": "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "options": ["Sidi ifni", "Martil", "Aftissat", "Dakhla"],
+    "correct_option": 3
 }]
 
 
@@ -188,10 +188,10 @@ export default function Game() {
     const handleOptionClick = (optionIndex) => {
         const correctOptionIndex = currentQuestion.correct_option;
         const isCorrect = optionIndex === correctOptionIndex;
-        setIsAnswerCorrect({index : optionIndex , isCorrect});
+        setIsAnswerCorrect({ index: optionIndex, isCorrect });
         setQuestionsAnsweredCorrectly(correctOptionIndex)
         isCorrect && setScore(score + 1)
-        
+
         setTimeout(() => {
             if (passedQst === 10) {
                 return alert(score)
@@ -247,9 +247,9 @@ export default function Game() {
             {!toggleHide && <main className="grid w-full place-items-center absolute bottom-24 gap-5">
                 {currentQuestion && currentQuestion.options.map((item, index) => (
                     <div className="flex w-full items-center justify-center gap-4">
-                        <div onClick={() => {isAnswerCorrect === null && handleOptionClick(index) }} className={`py-1 w-[20em] px-6 rounded-md cursor-pointer hover:scale-105 
-                        ${ isAnswerCorrect?.index === index && !isAnswerCorrect?.isCorrect ? 'bg-red-600 text-gray-100 animate-pluse'  
-                        : questionsAnsweredCorrectly === index ? 'bg-green-600 text-gray-100 animate-pluse' : 'bg-gray-200 text-gray-600'}`}>
+                        <div onClick={() => { isAnswerCorrect === null && handleOptionClick(index) }} className={`py-1 w-[20em] px-6 rounded-md cursor-pointer hover:scale-105 
+                        ${isAnswerCorrect?.index === index && !isAnswerCorrect?.isCorrect ? 'bg-red-600 text-gray-100 animate-pluse'
+                                : questionsAnsweredCorrectly === index ? 'bg-green-600 text-gray-100 animate-pluse' : 'bg-gray-200 text-gray-600'}`}>
                             <p className="text-center text-md font-bold font-serif ">{item} , Morocco</p>
                         </div>
                         <a href={`https://www.google.com/maps/place/${item}`} target="_blank" rel="noopener noreferrer">
@@ -420,6 +420,52 @@ export default function Game() {
             </div>
             <a href={currentQuestion && currentQuestion.link} target="_blank" rel="noopener noreferrer" className="absolute bottom-10 md:bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
             </a>
+
+            <div className='w-screen hidden h-screen absolute bg-black bg-opacity-90 flex items-center justify-center'>
+                <div className='absolute bg-white bg-opacity-40 rounded-xl p-5 w-4/5 md:w-1/4'>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 float-right text-gray-100 cursor-pointer hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                    <h1 class="mb-4 mt-4 text-3xl font-extrabold text-center text-gray-100">ACHIEVEMENTS</h1>
+                    <div class="flex items-center justify-center mt-4 mb-4">
+                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                        <svg class="mx-1 w-12 h-12 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                    </div>
+                    <div class="text-yellow-100">
+                        <h1 class="text-3xl text-center mb-3 font-extralight">The time you spent in the game ?</h1>
+                        <div class="text-3xl md:text-6xl text-center flex w-full items-center justify-center">
+                            <div class="text-2xl mr-1 font-extralight">in</div>
+                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
+                                <div class="font-mono leading-none" >00</div>
+                                <div class="font-mono uppercase text-sm leading-none">Days</div>
+                            </div>
+                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
+                                <div class="font-mono leading-none">00</div>
+                                <div class="font-mono uppercase text-sm leading-none">Hours</div>
+                            </div>
+                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
+                                <div class="font-mono leading-none" >00</div>
+                                <div class="font-mono uppercase text-sm leading-none">Minutes</div>
+                            </div>
+                            <div class="text-2xl mx-1 font-extralight">and</div>
+                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
+                                <div class="font-mono leading-none" >00</div>
+                                <div class="font-mono uppercase text-sm leading-none">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2 mt-6 px-5">
+                        <button class="p-2 bg-green-600 rounded-md text-gray-100 w-full text-2xl font-bold hover:bg-green-700">
+                            <svg version="1.1" className='w-8 h-8 inline-flex mr-3' fill='currentColor' id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 118.66" style={{ enableBackground: 'new 0 0 122.88 118.66' }} xmlSpace="preserve"><g><path d="M16.68,22.2c-1.78,2.21-3.43,4.55-5.06,7.46C5.63,40.31,3.1,52.39,4.13,64.2c1.01,11.54,5.43,22.83,13.37,32.27 c2.85,3.39,5.91,6.38,9.13,8.97c11.11,8.93,24.28,13.34,37.41,13.22c13.13-0.12,26.21-4.78,37.14-13.98 c3.19-2.68,6.18-5.73,8.91-9.13c6.4-7.96,10.51-17.29,12.07-27.14c1.53-9.67,0.59-19.83-3.07-29.66 c-3.49-9.35-8.82-17.68-15.78-24.21C96.7,8.33,88.59,3.76,79.2,1.48c-2.94-0.71-5.94-1.18-8.99-1.37c-3.06-0.2-6.19-0.13-9.4,0.22 c-2.01,0.22-3.46,2.03-3.24,4.04c0.22,2.01,2.03,3.46,4.04,3.24c2.78-0.31,5.49-0.37,8.14-0.19c2.65,0.17,5.23,0.57,7.73,1.17 c8.11,1.96,15.1,5.91,20.84,11.29c6.14,5.75,10.85,13.12,13.94,21.43c3.21,8.61,4.04,17.51,2.7,25.96 C113.59,75.85,110,84,104.4,90.96c-2.47,3.07-5.12,5.78-7.91,8.13c-9.59,8.07-21.03,12.15-32.5,12.26 c-11.47,0.11-23-3.76-32.76-11.61c-2.9-2.33-5.62-4.98-8.13-7.97c-6.92-8.22-10.77-18.09-11.65-28.2 c-0.91-10.38,1.32-20.99,6.57-30.33c1.59-2.82,3.21-5.07,5.01-7.24l0.53,14.7c0.07,2.02,1.76,3.6,3.78,3.53 c2.02-0.07,3.6-1.76,3.53-3.78l-0.85-23.42c-0.07-2.02-1.76-3.59-3.78-3.52c-0.13,0.01-0.25,0.02-0.37,0.03v0l-22.7,3.19 c-2,0.28-3.4,2.12-3.12,4.13c0.28,2,2.12,3.4,4.13,3.12L16.68,22.2L16.68,22.2L16.68,22.2z M85.78,58.71L53.11,80.65V37.12 L85.78,58.71L85.78,58.71z" /></g></svg>
+                            Replay</button>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
     )
