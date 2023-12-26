@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 const DB = [{
     "link": "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
@@ -28,7 +29,7 @@ const DB = [{
     "correct_option": 2
 },
 {
-    "link": "https://www.youtube.com/embed/6fVoOFyZF_U?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/f6BiA8nXBw4?autoplay=1&enablejsapi=1&start=50&rel=0&controls=0&loop=1",
     "options": ["Kalaat M'Gouna", "Youssoufia", "Zagora", "Errachidia "],
     "correct_option": 3
 },
@@ -98,7 +99,7 @@ const DB = [{
     "correct_option": 1
 },
 {
-    "link": "https://www.youtube.com/embed/vvA6LScWWm8?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/CbCYADoup7g?autoplay=1&enablejsapi=1&start=100&rel=0&controls=0&loop=1",
     "options": ["Laayoune", "Tan-Tan, Morocco", "Samara", "Guelmim"],
     "correct_option": 3
 },
@@ -113,7 +114,7 @@ const DB = [{
     "correct_option": 3
 },
 {
-    "link": "https://www.youtube.com/embed/ML2iN5EaztA?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/RaWWTrZXmF0?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
     "options": ["Ain El Aouda", "Azrou, Morocco", "Midalt", "Khénifra"],
     "correct_option": 1
 },
@@ -123,17 +124,17 @@ const DB = [{
     "correct_option": 3
 },
 {
-    "link": "https://www.youtube.com/embed/zMOd73Me8eY?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/8DkLGEK_UAE?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
     "options": ["Chichaoua", "Beni mellal, Morocco", "Marrakech", "Settat"],
     "correct_option": 0
 },
 {
-    "link": "https://www.youtube.com/embed/trvDKKP5sWY?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/1ttGQ864qMI?autoplay=1&enablejsapi=1&start=300&rel=0&controls=0&loop=1",
     "options": ["Arfoud", "Beni mellal, Morocco", "Marrakech", "Aziylal"],
     "correct_option": 1
 },
 {
-    "link": "https://www.youtube.com/embed/0_BZWmalEJY?autoplay=1&enablejsapi=1&start=400&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/LFUiAxkMU44?autoplay=1&enablejsapi=1&start=200&rel=0&controls=0&loop=1",
     "options": ["Demnat", "Zagora, Morocco", "Azemmour", "Aziylal"],
     "correct_option": 3
 },
@@ -153,7 +154,7 @@ const DB = [{
     "correct_option": 1
 },
 {
-    "link": "https://www.youtube.com/embed/F3DgG4Yc-0E?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
+    "link": "https://www.youtube.com/embed/Op38VrT8lEU?autoplay=1&enablejsapi=1&start=600&rel=0&controls=0&loop=1",
     "options": ["Sidi ifni", "Martil", "Aftissat", "Dakhla"],
     "correct_option": 3
 }]
@@ -168,10 +169,14 @@ export default function Game() {
     const [questionsAnsweredCorrectly, setQuestionsAnsweredCorrectly] = useState(null);
     const [passedQst, setPassedQst] = useState(0);
     const [score, setScore] = useState(0);
+    const [modal, setModal] = useState(false);
+    const [startTime, setStartTime] = useState(null);
+    const [elapsedTime, setElapsedTime] = useState(0);
     const navigate = useNavigate()
 
     useEffect(() => {
         getRandomQuestion()
+        setStartTime(moment());
     }, []);
 
 
@@ -194,7 +199,8 @@ export default function Game() {
 
         setTimeout(() => {
             if (passedQst === 10) {
-                return alert(score)
+                Achievements()
+                return 1
             }
             setIsAnswerCorrect(null);
             setQuestionsAnsweredCorrectly(null);
@@ -203,6 +209,15 @@ export default function Game() {
     };
 
 
+    function Achievements() {
+        setModal(true)
+        if (startTime) {
+            const currentTime = moment();
+            const duration = moment.duration(currentTime.diff(startTime));
+            setElapsedTime(duration.asMilliseconds());
+            setStartTime(null);
+        }
+    }
     return (
         <section className="flex items-center justify-center relative h-screen overflow-hidden bg-gray-500">
             {currentQuestion && <iframe id="yourIframeId" className="grayscale w-full h-full scale-110" style={{ pointerEvents: 'none' }}
@@ -214,7 +229,7 @@ export default function Game() {
             </div>
             <div className="absolute top-20 md:top-10 flex gap-6">
                 <span className="font-mono text-xl text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-5 rounded-full">
-                    {score} / 10
+                    {passedQst - 1} / 10
                 </span>
                 <div className="flex gap-2">
                     <span onClick={() => setToggleMute(!toggleMute)} className="text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleMute ? 'Mute' : 'Unmute'} The Video`}>
@@ -243,7 +258,7 @@ export default function Game() {
                     </span>
                 </div>
             </div>
-            <div className="absolute top-3 right-3 md:right-10 saturate-50 mx-auto" id="box" />
+            <div className="absolute top-3 right-3 md:right-10 saturate-50 mx-auto hidden md:block" id="box" />
             {!toggleHide && <main className="grid w-full place-items-center absolute bottom-24 gap-5">
                 {currentQuestion && currentQuestion.options.map((item, index) => (
                     <div className="flex w-full items-center justify-center gap-4">
@@ -421,50 +436,52 @@ export default function Game() {
             <a href={currentQuestion && currentQuestion.link} target="_blank" rel="noopener noreferrer" className="absolute bottom-10 md:bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
             </a>
 
-            <div className='w-screen hidden h-screen absolute bg-black bg-opacity-90 flex items-center justify-center'>
-                <div className='absolute bg-white bg-opacity-40 rounded-xl p-5 w-4/5 md:w-1/4'>
-                    
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 float-right text-gray-100 cursor-pointer hover:scale-110">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                    </svg>
-                    <h1 class="mb-4 mt-4 text-3xl font-extrabold text-center text-gray-100">ACHIEVEMENTS</h1>
-                    <div class="flex items-center justify-center mt-4 mb-4">
-                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
-                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
-                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
-                        <svg class="mx-1 w-12 h-12 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
-                        <svg class="mx-1 w-12 h-12 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
-                    </div>
-                    <div class="text-yellow-100">
-                        <h1 class="text-3xl text-center mb-3 font-extralight">The time you spent in the game ?</h1>
-                        <div class="text-3xl md:text-6xl text-center flex w-full items-center justify-center">
-                            <div class="text-2xl mr-1 font-extralight">in</div>
-                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
-                                <div class="font-mono leading-none" >00</div>
-                                <div class="font-mono uppercase text-sm leading-none">Days</div>
-                            </div>
-                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
-                                <div class="font-mono leading-none">00</div>
-                                <div class="font-mono uppercase text-sm leading-none">Hours</div>
-                            </div>
-                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
-                                <div class="font-mono leading-none" >00</div>
-                                <div class="font-mono uppercase text-sm leading-none">Minutes</div>
-                            </div>
-                            <div class="text-2xl mx-1 font-extralight">and</div>
-                            <div class="w-16 md:w-24 mx-1 p-2 bg-white text-yellow-500 rounded-lg">
-                                <div class="font-mono leading-none" >00</div>
-                                <div class="font-mono uppercase text-sm leading-none">Seconds</div>
+            {modal &&
+                <div className='w-screen h-screen absolute bg-black bg-opacity-90 flex items-center justify-center'>
+                    <div className='absolute bg-white bg-opacity-40 rounded-xl p-5 w-4/5 md:w-1/4 overflow-hidden'>
+
+                        <svg onClick={() => navigate('/')} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 float-right text-gray-100 cursor-pointer hover:scale-110">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                        <h1 class="mb-4 mt-4 text-3xl font-extrabold text-center text-gray-100">ACHIEVEMENTS</h1>
+                        <div class="flex items-center justify-center mt-4 mb-4" >
+                            {Array.from({ length: (score / 2) }, (_, index) => (
+                                <svg class="mx-1 w-12 h-12 fill-current text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                            ))}
+                            {Array.from({ length: (5 - Math.floor(score / 2)) }, (_, index) => (
+                                <svg class="mx-1 w-12 h-12 fill-current text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
+                            ))}
+                        </div>
+                        <div class="text-yellow-100">
+                            <h1 class="text-3xl text-center mb-3 font-extralight">The time you spent in the game ?</h1>
+                            <div className="text-xl md:text-6xl text-center flex flex-wrap gap-2 md:gap-0 w-full items-center justify-center">
+                                <div className="text-2xl mr-1 font-extralight">in</div>
+                                <div className="mx-1 w-20 p-2 bg-white text-yellow-500 rounded-lg">
+                                    <div className="font-mono leading-none">{Math.floor(moment.duration(elapsedTime).asDays())}</div>
+                                    <div className="font-mono uppercase text-sm leading-none">Days</div>
+                                </div>
+                                <div className="mx-1 w-20 p-2 bg-white text-yellow-500 rounded-lg">
+                                    <div className="font-mono leading-none">{moment.duration(elapsedTime).hours()}</div>
+                                    <div className="font-mono uppercase text-sm leading-none">Hours</div>
+                                </div>
+                                <div className="mx-1 w-20 p-2 bg-white text-yellow-500 rounded-lg">
+                                    <div className="font-mono leading-none">{moment.duration(elapsedTime).minutes()}</div>
+                                    <div className="font-mono uppercase text-sm leading-none">Minutes</div>
+                                </div>
+                                <div className="text-2xl mx-1 font-extralight">and</div>
+                                <div className="mx-1 w-20 p-2 bg-white text-yellow-500 rounded-lg">
+                                    <div className="font-mono leading-none">{moment.duration(elapsedTime).seconds()}</div>
+                                    <div className="font-mono uppercase text-sm leading-none">Seconds</div>
+                                </div>
                             </div>
                         </div>
+                        <div class="flex flex-col gap-2 mt-6 px-5">
+                            <button onClick={() => window.location.reload()} class="p-2 bg-green-600 rounded-md text-gray-100 w-full text-2xl font-bold hover:bg-green-700">
+                                <svg version="1.1" className='w-8 h-8 inline-flex mr-3' fill='currentColor' id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 118.66" style={{ enableBackground: 'new 0 0 122.88 118.66' }} xmlSpace="preserve"><g><path d="M16.68,22.2c-1.78,2.21-3.43,4.55-5.06,7.46C5.63,40.31,3.1,52.39,4.13,64.2c1.01,11.54,5.43,22.83,13.37,32.27 c2.85,3.39,5.91,6.38,9.13,8.97c11.11,8.93,24.28,13.34,37.41,13.22c13.13-0.12,26.21-4.78,37.14-13.98 c3.19-2.68,6.18-5.73,8.91-9.13c6.4-7.96,10.51-17.29,12.07-27.14c1.53-9.67,0.59-19.83-3.07-29.66 c-3.49-9.35-8.82-17.68-15.78-24.21C96.7,8.33,88.59,3.76,79.2,1.48c-2.94-0.71-5.94-1.18-8.99-1.37c-3.06-0.2-6.19-0.13-9.4,0.22 c-2.01,0.22-3.46,2.03-3.24,4.04c0.22,2.01,2.03,3.46,4.04,3.24c2.78-0.31,5.49-0.37,8.14-0.19c2.65,0.17,5.23,0.57,7.73,1.17 c8.11,1.96,15.1,5.91,20.84,11.29c6.14,5.75,10.85,13.12,13.94,21.43c3.21,8.61,4.04,17.51,2.7,25.96 C113.59,75.85,110,84,104.4,90.96c-2.47,3.07-5.12,5.78-7.91,8.13c-9.59,8.07-21.03,12.15-32.5,12.26 c-11.47,0.11-23-3.76-32.76-11.61c-2.9-2.33-5.62-4.98-8.13-7.97c-6.92-8.22-10.77-18.09-11.65-28.2 c-0.91-10.38,1.32-20.99,6.57-30.33c1.59-2.82,3.21-5.07,5.01-7.24l0.53,14.7c0.07,2.02,1.76,3.6,3.78,3.53 c2.02-0.07,3.6-1.76,3.53-3.78l-0.85-23.42c-0.07-2.02-1.76-3.59-3.78-3.52c-0.13,0.01-0.25,0.02-0.37,0.03v0l-22.7,3.19 c-2,0.28-3.4,2.12-3.12,4.13c0.28,2,2.12,3.4,4.13,3.12L16.68,22.2L16.68,22.2L16.68,22.2z M85.78,58.71L53.11,80.65V37.12 L85.78,58.71L85.78,58.71z" /></g></svg>
+                                Replay</button>
+                        </div>
                     </div>
-                    <div class="flex flex-col gap-2 mt-6 px-5">
-                        <button class="p-2 bg-green-600 rounded-md text-gray-100 w-full text-2xl font-bold hover:bg-green-700">
-                            <svg version="1.1" className='w-8 h-8 inline-flex mr-3' fill='currentColor' id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 118.66" style={{ enableBackground: 'new 0 0 122.88 118.66' }} xmlSpace="preserve"><g><path d="M16.68,22.2c-1.78,2.21-3.43,4.55-5.06,7.46C5.63,40.31,3.1,52.39,4.13,64.2c1.01,11.54,5.43,22.83,13.37,32.27 c2.85,3.39,5.91,6.38,9.13,8.97c11.11,8.93,24.28,13.34,37.41,13.22c13.13-0.12,26.21-4.78,37.14-13.98 c3.19-2.68,6.18-5.73,8.91-9.13c6.4-7.96,10.51-17.29,12.07-27.14c1.53-9.67,0.59-19.83-3.07-29.66 c-3.49-9.35-8.82-17.68-15.78-24.21C96.7,8.33,88.59,3.76,79.2,1.48c-2.94-0.71-5.94-1.18-8.99-1.37c-3.06-0.2-6.19-0.13-9.4,0.22 c-2.01,0.22-3.46,2.03-3.24,4.04c0.22,2.01,2.03,3.46,4.04,3.24c2.78-0.31,5.49-0.37,8.14-0.19c2.65,0.17,5.23,0.57,7.73,1.17 c8.11,1.96,15.1,5.91,20.84,11.29c6.14,5.75,10.85,13.12,13.94,21.43c3.21,8.61,4.04,17.51,2.7,25.96 C113.59,75.85,110,84,104.4,90.96c-2.47,3.07-5.12,5.78-7.91,8.13c-9.59,8.07-21.03,12.15-32.5,12.26 c-11.47,0.11-23-3.76-32.76-11.61c-2.9-2.33-5.62-4.98-8.13-7.97c-6.92-8.22-10.77-18.09-11.65-28.2 c-0.91-10.38,1.32-20.99,6.57-30.33c1.59-2.82,3.21-5.07,5.01-7.24l0.53,14.7c0.07,2.02,1.76,3.6,3.78,3.53 c2.02-0.07,3.6-1.76,3.53-3.78l-0.85-23.42c-0.07-2.02-1.76-3.59-3.78-3.52c-0.13,0.01-0.25,0.02-0.37,0.03v0l-22.7,3.19 c-2,0.28-3.4,2.12-3.12,4.13c0.28,2,2.12,3.4,4.13,3.12L16.68,22.2L16.68,22.2L16.68,22.2z M85.78,58.71L53.11,80.65V37.12 L85.78,58.71L85.78,58.71z" /></g></svg>
-                            Replay</button>
-                    </div>
-                </div>
-            </div>
+                </div>}
 
         </section>
 
