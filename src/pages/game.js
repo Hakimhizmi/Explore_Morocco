@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import ConfettiExplosion from 'react-confetti-explosion';
 
 const DB = [{
     "link": "https://www.youtube.com/embed/-W3xNjeIo8k?autoplay=1&enablejsapi=1&start=500&rel=0&controls=0&loop=1",
@@ -177,6 +178,7 @@ export default function Game() {
     useEffect(() => {
         getRandomQuestion()
         setStartTime(moment());
+
     }, []);
 
 
@@ -229,7 +231,7 @@ export default function Game() {
             </div>
             <div className="absolute top-20 md:top-10 flex gap-6">
                 <span className="font-mono text-xl text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-5 rounded-full">
-                    {passedQst - 1} / 10
+                    {passedQst} / 10
                 </span>
                 <div className="flex gap-2">
                     <span onClick={() => setToggleMute(!toggleMute)} className="text-gray-900 md:text-gray-100 bg-white md:bg-black bg-opacity-80 py-2 px-3 rounded-full flex items-center cursor-pointer" title={`${toggleMute ? 'Mute' : 'Unmute'} The Video`}>
@@ -438,6 +440,11 @@ export default function Game() {
 
             {modal &&
                 <div className='w-screen h-screen absolute bg-black bg-opacity-90 flex items-center justify-center'>
+                    <ConfettiExplosion numberOfPieces={500}
+                        recycle={false}
+                        gravity={0.5}
+                        initialVelocityX={5}
+                        initialVelocityY={10} />
                     <div className='absolute bg-white bg-opacity-40 rounded-xl p-5 w-4/5 md:w-1/4 overflow-hidden'>
 
                         <svg onClick={() => navigate('/')} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-9 h-9 float-right text-gray-100 cursor-pointer hover:scale-110">

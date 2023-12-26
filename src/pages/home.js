@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
   const navigate = useNavigate()
+  const today = new Date();
   return (
     <section className="flex items-center justify-center relative w-screen h-screen overflow-hidden">
       <img className="absolute inset-0 grayscale object-cover w-full h-full" src="https://www.middleeasteye.net/sites/default/files/images-story/western%20sahara%20map%20morocco%20afp.jpg" alt="" />
@@ -17,7 +18,7 @@ export default function Home() {
           <div className="flex justify-end">
             <div className="h-4 w-4 rounded-full bg-gray-900" />
           </div>
-          <header className="text-center text-xl font-extrabold text-gray-600">2021.09.01</header>
+          <header className="text-center text-xl font-extrabold text-gray-600">{today.getFullYear() + '.' + ('0' + (today.getMonth() + 1)).slice(-2) + '.' + ('0' + today.getDate()).slice(-2)}</header>
           <div>
             <p className="text-center text-5xl font-extrabold text-gray-900 italic">Explore Morocco</p>
             <p className="text-center mt-3 text-xs font-bold text-gray-900/50">Explore Morocco is a captivating online
