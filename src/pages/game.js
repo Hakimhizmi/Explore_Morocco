@@ -230,6 +230,7 @@ export default function Game() {
             setStartTime(null);
         }
     }
+
     return (
         <section className="flex items-center justify-center relative h-screen overflow-hidden bg-gray-500">
             {currentQuestion && <iframe id="yourIframeId" className="grayscale w-full h-full scale-110" style={{ pointerEvents: 'none' }}
@@ -456,8 +457,8 @@ export default function Game() {
                         </svg>
                     </a>
                 </div>
-                <a href={currentQuestion && currentQuestion.link} target="_blank" rel="noopener noreferrer" className="absolute bottom-10 md:bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
-                </a>
+                {!loading && !loadingOptions ? <a href={currentQuestion && currentQuestion.link && `https://www.youtube.com/watch?v=${currentQuestion.link.match(/\/embed\/([^?]+)/)[1]}`} target="_blank" rel="noopener noreferrer" className="absolute bottom-10 md:bottom-3 right-5 underline text-gray-200 text-sm font-bold italic cursor-pointer">video source
+                </a> : ''}
             </>}
 
             {modal &&
