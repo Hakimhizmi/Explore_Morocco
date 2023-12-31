@@ -9,6 +9,16 @@
   transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg);
 }
 
+#box1 {
+  background: url(https://cdn.rawgit.com/ManzDev/cursos-assets/gh-pages/css3/earth-2.jpg);
+  background-size: cover;
+  border-radius: 50%;
+  width: 112px;
+  height: 112px;
+  animation: movimiento 6s linear 0s infinite;
+  
+  transform: rotateX(6deg) rotateY(6deg) rotateZ(6deg);
+}
 @keyframes movimiento {
   0% {
     background-position: 0 0;
@@ -26,3 +36,7 @@
     background-position: 0 100%;
   }
 }
+
+
+
+
