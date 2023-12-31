@@ -199,7 +199,7 @@ export default function Game() {
         updatedQuizData.splice(randomIndex, 1);
         setQuizData(updatedQuizData);
         setDelayedLoading(setLoading, 2500);
-        setDelayedLoading(setLoadingOptions, 6500);
+        setDelayedLoading(setLoadingOptions, 8500);
     };
 
     const handleOptionClick = (optionIndex) => {
@@ -277,7 +277,7 @@ export default function Game() {
                         <div className="saturate-50 mx-auto" id="box1" />
                     </main>
                     : loadingOptions ?
-                        <div class="absolute bottom-40 py-5 px-7 border-[6px] border-white rounded-full">
+                        <div class="absolute bottom-40 py-4 px-7 bg-gray-200 border border-white rounded-full">
                             <Timer />
                         </div>
                         :

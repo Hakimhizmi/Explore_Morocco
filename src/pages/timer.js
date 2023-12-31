@@ -13,6 +13,6 @@ export default function Timer() {
         }
     })
   return (
-    <h1 className='text-4xl font-bold text-white italic'>{count}</h1>
+    <h1 className='text-5xl font-bold font-mono text-gray-600'>{count}</h1>
   )
 }
