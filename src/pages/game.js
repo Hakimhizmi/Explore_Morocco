@@ -277,7 +277,7 @@ export default function Game() {
                         <div className="saturate-50 mx-auto" id="box1" />
                     </main>
                     : loadingOptions ?
-                        <div class="absolute bottom-40 py-5 px-7 border-4 border-white rounded-full">
+                        <div class="absolute bottom-40 py-5 px-7 border-[6px] border-white rounded-full">
                             <Timer />
                         </div>
                         :
